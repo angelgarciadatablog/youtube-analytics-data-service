@@ -1,0 +1,11 @@
+.gcloudignore
+.git/
+.gitignore
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+requirements.txt
+CONTEXT_FOR_NEW_REPO.md
+README.md
