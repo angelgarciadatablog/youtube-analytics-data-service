@@ -67,6 +67,7 @@ GCS_BUCKET=angelgarciadatablog-analytics
 | `weekly/view-video-growth-weekly.json` | vista `view-video-growth-weekly` |
 | `weekly/view-video-weekly-evolution-relevant.json` | vista `view-video-weekly-evolution-relevant` |
 | `weekly/view-playlist-weekly-evolution.json` | vista `view-playlist-weekly-evolution` (con filtro `is_baseline = FALSE`) |
+| `weekly/view-all-playlist-videos-weekly.json` | vista `view-all-playlist-videos-weekly` |
 
 ---
 
@@ -93,14 +94,16 @@ GCS_BUCKET=angelgarciadatablog-analytics
 
 Los JSON generados son accesibles públicamente desde el bucket de Cloud Storage:
 
-```
-https://storage.googleapis.com/angelgarciadatablog-analytics/daily/view-channel-growth-daily.json
-https://storage.googleapis.com/angelgarciadatablog-analytics/daily/latest_videos_current.json
-https://storage.googleapis.com/angelgarciadatablog-analytics/weekly/view-playlist-growth-weekly.json
-https://storage.googleapis.com/angelgarciadatablog-analytics/weekly/view-video-growth-weekly.json
-https://storage.googleapis.com/angelgarciadatablog-analytics/weekly/view-video-weekly-evolution-relevant.json
-https://storage.googleapis.com/angelgarciadatablog-analytics/weekly/view-playlist-weekly-evolution.json
-```
+**Daily**
+- https://storage.googleapis.com/angelgarciadatablog-analytics/daily/view-channel-growth-daily.json
+- https://storage.googleapis.com/angelgarciadatablog-analytics/daily/latest_videos_current.json
+
+**Weekly**
+- https://storage.googleapis.com/angelgarciadatablog-analytics/weekly/view-playlist-growth-weekly.json
+- https://storage.googleapis.com/angelgarciadatablog-analytics/weekly/view-video-growth-weekly.json
+- https://storage.googleapis.com/angelgarciadatablog-analytics/weekly/view-video-weekly-evolution-relevant.json
+- https://storage.googleapis.com/angelgarciadatablog-analytics/weekly/view-playlist-weekly-evolution.json
+- https://storage.googleapis.com/angelgarciadatablog-analytics/weekly/view-all-playlist-videos-weekly.json
 
 ### Cloud Schedulers
 
