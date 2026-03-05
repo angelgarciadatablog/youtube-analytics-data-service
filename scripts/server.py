@@ -37,7 +37,9 @@ def weekly_server():
     tables = [
         ("view-playlist-growth-weekly", "weekly/view-playlist-growth-weekly.json"),
         ("view-video-growth-weekly", "weekly/view-video-growth-weekly.json"),
-        ("view-video-weekly-evolution-relevant", "weekly/view-video-weekly-evolution-relevant.json")
+        ("view-video-weekly-evolution-relevant", "weekly/view-video-weekly-evolution-relevant.json"),
+        ("view-all-playlist-videos-weekly", "weekly/view-all-playlist-videos-weekly.json")
+        
     ]
 
     for table_name, filename in tables:
