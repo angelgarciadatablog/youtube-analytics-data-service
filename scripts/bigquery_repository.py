@@ -31,12 +31,12 @@ class BigQueryRepository:
 
     # MÉTODO ESPECÍFICO: función con su propio SQL.
     # Úsalo cuando necesitas filtros, ORDER BY, LIMIT, etc.
+    # Esta función no es necesaria, anteriormente lo usamos para filtrar el primer snapshot por aquí (WHERE is_baseline = FALSE), pero es mejor filtrarlo desde big query (WHERE pe.prev_snapshot_date IS NOT NULL)
 
     def get_view_playlist_weekly_evolution(self):
         query = f"""
             SELECT *
             FROM `{self.client.project}.{self.dataset}.view-playlist-weekly-evolution`
-            WHERE is_baseline = FALSE
             ORDER BY playlist_id, snapshot_date ASC
         """
         return self.client.query(query).to_dataframe()

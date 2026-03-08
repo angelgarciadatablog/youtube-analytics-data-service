@@ -66,7 +66,7 @@ GCS_BUCKET=angelgarciadatablog-analytics
 | `weekly/view-playlist-growth-weekly.json` | vista `view-playlist-growth-weekly` |
 | `weekly/view-video-growth-weekly.json` | vista `view-video-growth-weekly` |
 | `weekly/view-video-weekly-evolution-relevant.json` | vista `view-video-weekly-evolution-relevant` |
-| `weekly/view-playlist-weekly-evolution.json` | vista `view-playlist-weekly-evolution` (con filtro `is_baseline = FALSE`) |
+| `weekly/view-playlist-weekly-evolution.json` | vista `view-playlist-weekly-evolution` |
 | `weekly/view-all-playlist-videos-weekly.json` | vista `view-all-playlist-videos-weekly` |
 
 ---
