@@ -8,6 +8,9 @@ alimentando una web personal y un dashboard de Power BI.
 ## Arquitectura
 
 ```
+youtube-v3-data-pipeline (ETL)
+    │
+    ▼
 BigQuery (dataset: angelgarciadatablog)
     │
     ▼
@@ -16,7 +19,7 @@ Cloud Functions (youtube-analytics-daily + youtube-analytics-weekly)
     ▼
 Cloud Storage: angelgarciadatablog-analytics (bucket público)
     │
-    ├──▶ Web personal (consume JSON directamente)
+    ├──▶ youtube-insights-dashboard (dashboard web estático en GitHub Pages)
     └──▶ Power BI (consume JSON desde Cloud Storage)
 ```
 
@@ -120,17 +123,26 @@ Los JSON generados son accesibles públicamente desde el bucket de Cloud Storage
 
 ---
 
-## Dependencia con el pipeline ETL
+## Posición en la arquitectura
+
+Este servicio ocupa la capa intermedia de un pipeline de tres repositorios:
+
+| Capa | Repo | Rol |
+|------|------|-----|
+| 1 | `youtube-v3-data-pipeline` | ETL: extrae de la API de YouTube y carga en BigQuery |
+| 2 | `youtube-analytics-data-service` | **Este repo:** exporta BigQuery → JSON en Cloud Storage |
+| 3 | `youtube-insights-dashboard` | Dashboard web estático que visualiza los JSON |
 
 Este servicio depende del pipeline ETL (`youtube-v3-data-pipeline`) que escribe los datos en BigQuery.
 Los schedulers están definidos para correr **1 hora después** de que el ETL termina, garantizando que los datos ya estén disponibles.
 
-| Evento | Pipeline | Hora UTC |
-|--------|----------|----------|
+| Evento | Repo / Scheduler | Hora UTC |
+|--------|------------------|----------|
 | ETL escribe en BigQuery | `youtube-v3-data-pipeline` (daily) | 2:00 AM |
 | **Este repo exporta a Cloud Storage** | `youtube-daily-analytics` | **3:00 AM** |
 | ETL escribe en BigQuery | `youtube-v3-data-pipeline` (weekly, lunes) | 2:30 AM |
 | **Este repo exporta a Cloud Storage** | `youtube-weekly-analytics` | **3:30 AM** |
+| `youtube-insights-dashboard` consume los JSON | GitHub Pages (estático) | en tiempo real |
 
 ---
 
