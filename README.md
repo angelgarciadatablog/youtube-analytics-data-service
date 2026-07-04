@@ -17,7 +17,7 @@ BigQuery (dataset: angelgarciadatablog)
 Cloud Functions (youtube-analytics-daily + youtube-analytics-weekly)
     │
     ▼
-Cloud Storage: angelgarciadatablog-analytics (bucket público)
+Cloud Storage: angelgarciadatablog-analytics (bucket privado — acceso por IAM)
     │
     ├──▶ youtube-insights-dashboard (dashboard web estático en GitHub Pages)
     └──▶ Power BI (consume JSON desde Cloud Storage)
